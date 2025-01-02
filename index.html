@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Nutrition and Lifestyle</title>
+    <link rel="icon" type="image/x-icon" href="images/Logo.jpg">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f4;
+            color: #333;
+            position: relative;
+        }
+
+        h2, h3 {
+            font-size: 2.5rem;
+            color: #2b6a34;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-top: 10px;
+        }
+
+        header {
+            background: linear-gradient(to right, rgba(43, 106, 52, 0.8), rgba(74, 143, 69, 0.8)), 
+                    url('images/headerbg.jpeg?fit=crop&w=1920&q=80') no-repeat center/cover;
+        color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header .logo h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        header .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header  .cta-btn {
+        padding: 15px 30px;
+        background-color: #fff;
+        color: #0e3d15;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        display: inline-block; /* Ensures the button doesn't stretch */
+        margin-bottom: 30px; /* Adds space below the button */
+    }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .leaf-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/leaf.png');
+            opacity: 0.09;
+            pointer-events: none;
+           box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
+        }
+
+        @keyframes moveLeaves {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20% 20%;
+            }
+        }
+
+        .section {
+            padding: 50px 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+       .section h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .about-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .about-card {
+            background-color: #e8f5e9;
+            color: #0f330f;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: scale(1.05);
+        }
+
+        .about-card h3 {
+            font-size: 20px;
+            margin-top: 0;
+            font-weight: bold;
+        }
+
+        .about-card p {
+            font-size: 14px;
+        }
+
+
+        .recipe-cards, .superfood-cards, .diet-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .recipe-card, .superfood-card, .diet-card {
+            background-color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 8px;
+            width: 30%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .recipe-card img, .superfood-card img {
+            width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .importance-section {
+            background-color: #4a8f45;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .importance-section p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .importance-stats {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+
+        .importance-stats .stat {
+            background: #0e3d15;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 28%;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #0e3d15;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-card, .superfood-card, .diet-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .recipe-cards, .superfood-cards, .diet-cards {
+                flex-direction: column;
+                align-items: center;
+            } 
+         h3 {
+        color: #f4f7f4;
+         }
+        }
+ .collaboration-card {
+        text-align: center;
+        margin: 20px;
+        background-color: #edf7ed; /* Light green background effect */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 25%;
+        transition: transform 0.2s, box-shadow 0.2s; /* Add a hover effect */
+    }
+
+    .collaboration-card:hover {
+        transform: translateY(-5px); /* Slight lift on hover */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .collaboration-card img {
+        width: 120px; /* Increased logo size */
+        height: 120px; /* Increased logo size */
+        border-radius: 50%;
+        border: 5px solid #2b6a34; /* Dark green circular border */
+        margin-bottom: 15px;
+        object-fit: contain; /* Ensures the logo fits well within the circle */
+        background-color: #edf7ed; /* White background for contrast */
+        padding: 10px; /* Padding for a polished look */
+    }
+
+    .collaboration-card h3 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .collaboration-cards {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .collaboration-card {
+            width: 100%;
+        }
+
+        .collaboration-card img {
+            width: 100px; /* Adjusted for smaller screens */
+            height: 100px; /* Adjusted for smaller screens */
+        }
+    }
+ /* FAQ Section */
+ #faq {
+            width: 60%; /* Shrinking container to 80% */
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Spacing between items */
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #d3d3d3; /* Divider between items */
+            padding: 8px 0; /* Compact padding */
+            background-color: transparent;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px; /* Reduced space between question and arrow */
+             background-color: #d1f1d1; /* White background for contrast */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #2b6a34;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .faq-question .arrow {
+            font-size: 18px;
+            color: #A0C4A4; /* Lighter arrow color */
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .arrow {
+            transform: rotate(180deg); /* Arrow rotation */
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 8px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+    /* Footer - Ask Your Dietitian Button */
+    .ask-dietitian {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .ask-dietitian .cta-btn {
+        padding: 15px 30px;
+        background-color: #2b6a34;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .ask-dietitian .cta-btn:hover {
+        background-color: #4a8f45;
+    }
+
+/* Floating chat icon with "Chat with AI" and chat bubble icon */
+        #chatIcon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2b6a34;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        #chatIcon i {
+            margin-right: 10px;
+        }
+
+        /* Chat window with increased size */
+        #chatWindow {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px; /* Increased width */
+            height: 500px; /* Increased height */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        /* Chat header */
+        #chatHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #2b6a34;
+        }
+
+        #chatHeader span {
+            font-weight: bold;
+        }
+
+        #closeChat {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Chat messages */
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .ai-message {
+            justify-content: flex-start;
+        }
+
+        .message span {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            word-wrap: break-word;
+        }
+
+        .user-message span {
+            background-color: #2b6a34;
+            color: white;
+        }
+
+        .ai-message span {
+            background-color: #e0e0e0;
+        }
+
+        /* Input field and button */
+        #userInput {
+            display: flex;
+            margin-top: auto;
+        }
+
+        #userText {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        #sendButton {
+            width: 20%;
+            background-color: #2b6a34;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #sendButton i {
+            font-size: 20px;
+        }
+       
+        /* additional */
+        #contact-form {
+    width: 60%;
+    margin: 0 auto;
+    transition: width 0.3s ease; /* Smooth transition effect */
+}
+
+
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            background-color: #2b6a34;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #1e4d28;
+        }
+        
+/* Shrink form width for smaller viewports */
+@media (max-width: 992px) {
+    #contact-form {
+        width: 80%; /* Shrink width for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    #contact-form {
+        width: 90%; /* Shrink width further for smaller devices */
+    }
+}
+
+@media (max-width: 576px) {
+    #contact-form {
+        width: 95%; /* Max shrink for very small devices */
+    }
+}
+
+ .logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #2b6a34;
+    margin-bottom: 5px;
+    object-fit: contain;
+    background-color: #edf7ed;
+    padding: 5px;
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="leaf-animation"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+             <img src="images/Logo.jpg" alt="Heathy Food" id="siteLogo">
+                <h1>Healthy Living</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#nutrition">Nutrition</a></li>
+                <li><a href="#recipes">Healthy Recipes</a></li>
+                <li><a href="#superfoods">Superfoods</a></li>
+                <li><a href="#diet-plans">Diet Plans</a></li>
+                <li><a href="#nutrition-advice">Nutritional Advice</a></li>
+                <li><a href="#approved">Approved By</a></li>
+                <li><a href="#introduction">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h2 style="color:#0f330f;">Fuel Your Body, Nourish Your Life!</h2>
+            <p>Discover healthy recipes, superfoods, and expert advice for a healthier lifestyle</p>
+            <a href="#recipes" class="cta-btn">Get Started</a>
+        </div>
+    </header>
+
+    <section id="nutrition" class="section">
+        <h2>Nutrition: Why It’s Important</h2>
+        <div class="importance-section">
+            <h3 style="color:#0f330f;">Good Nutrition is Key to a Healthy Life!</h3>
+            <p>Nutrition plays a vital role in your overall health, energy levels, and longevity. A balanced diet with the right nutrients can help you maintain a healthy weight, improve brain function, and reduce the risk of chronic diseases. Proper nutrition boosts the immune system, promotes healthy skin, and ensures the body's optimal function.</p>
+            <div class="importance-stats">
+                <div class="stat">
+                    <h3 style="color:white;">60%</h3>
+                    <p>of chronic diseases are linked to poor nutrition habits.</p>
+                </div>
+                <div class="stat">
+                    <h3 style="color:white;">30%</h3>
+                    <p>Reduction in cancer risk by eating a balanced diet.</p>
+                </div>
+                <div class="stat">
+                    <h3 style="color:white;">20%</h3>
+                    <p>Better sleep quality with proper nutritional choices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recipes" class="section">
+        <h2>Healthy Recipes</h2>
+        <p>Explore simple, nutritious recipes that cater to a wide variety of dietary needs.</p>
+        <div class="recipe-cards">
+            <div class="recipe-card">
+                 <img src="images/avocado-toast.jpg" alt="Avocado Toast">
+                <h3>Avocado Toast with Egg</h3>
+                <p>A delicious breakfast packed with healthy fats and protein to start your day right.</p>
+            </div>
+            <div class="recipe-card">
+                <img src="images/veggie-stirfry.jpg" alt="Veggie Stir-fry">
+                <h3>Veggie Stir-fry</h3>
+                <p>Light and vibrant, full of fresh vegetables and flavor, perfect for a light dinner.</p>
+            </div>
+            <div class="recipe-card">
+                <img src="images/banana-pancakes.jpg" alt="Banana Pancakes">
+                <h3>Banana Pancakes</h3>
+                <p>Sweet, fluffy pancakes made with nutritious ingredients—perfect for a healthy treat.</p>
+            </div>
+            <div class="recipe-card">
+                <img src="images/Fruit-Smoothie.jpg" alt="Fruit Smoothie">
+                <h3>Fruit Smoothie</h3>
+                <p>A refreshing blend of fruits that boosts your energy and provides essential vitamins.</p>
+            </div>
+            <div class="recipe-card">
+                <img src="images/Roasted-Vegetables.jpg" alt="Roasted Vegetables">
+                <h3>Roasted Vegetables</h3>
+                <p>Roast your favorite veggies with herbs for a savory, nutrient-rich meal.</p>
+            </div>
+            <div class="recipe-card">
+                <img src="images/Green-salad.jpg" alt="Green Salad">
+                <h3>Green Salad</h3>
+                <p>A mix of fresh greens, nuts, and a tangy dressing for a nutrient-packed meal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="superfoods" class="section">
+        <h2>Superfoods</h2>
+        <p>Discover the power of nutrient-dense superfoods that enhance your health and vitality.</p>
+        <div class="superfood-cards">
+            <div class="superfood-card">
+                <img src="images/Blueberries.jpg" alt="Blueberries">
+                <h3>Blueberries</h3>
+                <p>Rich in antioxidants, these tiny berries boost brain function and heart health.</p>
+            </div>
+            <div class="superfood-card">
+                <img src="images/Chia.jpg" alt="Chia Seeds">
+                <h3>Chia Seeds</h3>
+                <p>A great source of omega-3 fatty acids, fiber, and protein for sustained energy.</p>
+            </div>
+            <div class="superfood-card">
+                <img src="images/Kale.jpg" alt="Kale">
+                <h3>Kale</h3>
+                <p>A leafy green powerhouse packed with vitamins, minerals, and antioxidants.</p>
+            </div>
+            <div class="superfood-card">
+                <img src="images/Quinoa.jpg" alt="Quinoa">
+                <h3>Quinoa</h3>
+                <p>A gluten-free grain with complete protein and a wealth of nutrients.</p>
+            </div>
+ <div class="superfood-card">
+                <img src="images/almonds.jpg" alt="Almonds">
+                <h3>Almonds</h3>
+                <p>Packed with healthy fats, vitamin E, and magnesium, great as a snack or in meals.</p>
+            </div>
+            <div class="superfood-card">
+                <img src="images/sweet-potatoes.jpg" alt="Sweet Potatoes">
+                <h3>Sweet Potatoes</h3>
+                <p>A rich source of vitamins and fiber, excellent for energy and gut health.</p>
+            </div>
+        </div>
+    </section>
+
+   <section id="diet-plans" class="section">
+    <div class="importance-section">
+    <h2 style="color:#0f330f;">Diet Plans</h2>
+    <p>Find curated diet plans tailored for your health goals and preferences.</p>
+    <div class="diet-cards">
+        <div class="diet-card">
+            <h3>Keto Diet</h3>
+            <p style="color:#0f330f;">Low-carb, high-fat diet for effective weight loss and improved energy.</p>
+        </div>
+        <div class="diet-card">
+            <h3>Vegetarian Diet</h3>
+            <p style="color:#0f330f;">Nutritious plant-based options for a balanced and eco-friendly lifestyle.</p>
+        </div>
+        <div class="diet-card">
+            <h3>Mediterranean Diet</h3>
+            <p style="color:#0f330f;">A heart-healthy diet inspired by the Mediterranean region’s culinary traditions.</p>
+        </div>
+        <div class="diet-card">
+            <h3>Intermittent Fasting</h3>
+            <p style="color:#0f330f;">Time-restricted eating to promote weight loss and metabolic health.</p>
+        </div>
+        <div class="diet-card">
+            <h3>DASH Diet</h3>
+            <p style="color:#0f330f;">Dietary approach to stop hypertension, focusing on reducing sodium intake.</p>
+        </div>
+        <div class="diet-card">
+            <h3>Gluten-Free Diet</h3>
+            <p style="color:#0f330f;">Perfect for individuals with gluten sensitivity or celiac disease.</p>
+        </div>
+     </div>
+    </div>
+</section>
+
+  <section id="nutrition-advice" class="section">
+    <h2>Nutritional Advice</h2>
+  
+    <ol style="text-align: left; margin: 0 auto; max-width: 800px; font-size: 1.2rem; line-height: 1.8;">
+        <li>Include a variety of fruits and vegetables in your meals to ensure a balanced nutrient intake.</li>
+        <li>Stay hydrated throughout the day by drinking at least 8 glasses of water.</li>
+        <li>Incorporate whole grains, lean proteins, and healthy fats into your daily diet.</li>
+        <li>Avoid processed foods and opt for natural, minimally processed ingredients.</li>
+        <li>Practice mindful eating by paying attention to portion sizes and hunger cues.</li>
+        <li>Plan your meals in advance to avoid unhealthy last-minute food choices.</li>
+        <li>Consider consulting a nutritionist to tailor your diet to specific health goals.</li>
+    </ol>
+</section>
+
+<section id="approved" class="section">
+    <h2>Approved / Collaborated With</h2>
+    <p>We are proudly partnered with leading health organizations to bring you the best guidance and support.</p>
+    <div class="collaboration-cards">
+        <div class="collaboration-card">
+            <img src="images/Who.jpeg" alt="World Health Organization (WHO)">
+            <h3>World Health Organization (WHO)</h3>
+        </div>
+        <div class="collaboration-card">
+            <img src="images/NIH.png" alt="National Institute of Health (NIH)">
+            <h3>National Institute of Health (NIH)</h3>
+        </div>
+        <div class="collaboration-card">
+            <img src="images/GWI.jpeg" alt="Global Wellness Institute (GWI)">
+            <h3>Global Wellness Institute (GWI)</h3>
+        </div>
+        <div class="collaboration-card">
+            <img src="images/NNC.png" alt="National Nutrition Council (NNC)">
+            <h3>National Nutrition Council (NNC)</h3>
+        </div>
+        <div class="collaboration-card">
+            <img src="images/AND.jpeg" alt="Academy of Nutrition and Dietetics (AND)">
+            <h3>Academy of Nutrition and Dietetics (AND)</h3>
+        </div>
+    </div>
+</section>
+
+
+  <!-- About Us Section -->
+    <div class="container">
+        <section class="section" id="introduction">
+            <h2>About Us</h2>
+            <p>We are committed to promoting a healthy lifestyle with personalized nutrition plans, AI-driven learning, and expert advice. <br> Our mission is to provide accessible and effective solutions for everyone to achieve their health goals with ease and support.</p>
+        </section>
+
+
+<!-- Our Services Section -->
+    <section class="section" id="services">
+    <div class="importance-section">
+    <h2 style="color:#fff;">Our Services</h2>
+    <div class="about-cards">
+       <div class="about-card">
+         <h3>Personalized Nutrition Plans</h3>
+             <p style="color:#0f330f;">Tailored nutrition plans to help you reach your health goals, whether it's weight loss, muscle gain, or maintaining overall health. Our plans are designed by experts to suit your lifestyle.</p> 
+          </div>
+            <div class="about-card">
+            <h3>AI-Driven Content</h3>
+            <p style="color:#0f330f;">Our AI-powered tools provide adaptive learning paths, performance analytics, and personalized content to help students, teachers, and professionals succeed in their learning journeys.</p>  
+        </div>
+        <div class="about-card">
+            <h3>Expert Nutrition Advice</h3>
+            <p style="color:#0f330f;">We offer expert guidance from qualified dietitians and nutritionists to help you make informed decisions about your diet, ensuring your health goals are achieved effectively.</p>
+           </div>
+        </div>
+</section>
+
+      
+<section id="faq" class="section">
+    <h2>Ask Your Dietitians</h2>
+    <p>Find answers to the most frequently asked questions about nutrition, recipes, and diet plans.</p>
+    <div class="faq-container">
+        <!-- FAQ Items -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>What is real food?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Real food refers to whole, minimally processed foods that are close to their natural form, such as fruits, vegetables, lean proteins, whole grains, and healthy fats.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Are all of your recipes gluten-free?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Not all recipes are gluten-free, but many of them are! Look for the gluten-free label on each recipe to ensure it meets your dietary needs.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Do your recipes contain nutrition information?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we provide detailed nutrition information for most of our recipes, including calorie count and macronutrient breakdown.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Are your recipes geared toward weight loss?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Some recipes are designed to support weight loss by being lower in calories and higher in nutrient density, but our main goal is overall health.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Do you offer nutrition consulting?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we offer one-on-one nutrition consulting services to help you achieve your health goals.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Do you offer meal plans?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we provide customizable meal plans based on your dietary needs and health objectives.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>What is a dietitian?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>A dietitian is a licensed health professional specializing in nutrition and dietetics to promote better health.</p>
+            </div>
+        </div>
+        <!-- Additional FAQs -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Are your recipes just for people with food allergies?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>No, our recipes cater to a wide range of dietary preferences and are suitable for everyone, not just those with food allergies.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>How can I submit a recipe suggestion?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can submit your recipe suggestions by contacting us through our website or email.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>How can I submit a nutrition question?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>You can submit your nutrition-related questions through the "Ask Your Dietitian" button in the footer.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Do you offer classes?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, we offer virtual and in-person classes on nutrition, healthy cooking, and meal planning.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>What is your food/health philosophy?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Our philosophy emphasizes balance, variety, and moderation to create a sustainable, healthy lifestyle.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>When did you start working together?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>We began collaborating in 2015 to share our expertise and passion for healthy living.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>What if I don’t eat gluten-free? Will I like your recipes?</h3>
+                <span class="arrow">&#x25BC;</span>
+            </div>
+            <div class="faq-answer">
+                <p>Absolutely! While we offer gluten-free options, many recipes are adaptable or naturally gluten-free, making them enjoyable for everyone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // FAQ Toggle Script
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const faqItem = item.parentElement;
+            faqItem.classList.toggle('open');
+        });
+    });
+</script>
+
+ <!-- Floating Chat Icon -->
+    <div id="chatIcon">
+        <i>💬</i> Chat with AI
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow">
+        <div id="chatHeader">
+            <span>Chat with AI</span>
+            <span id="closeChat">X</span>
+        </div>
+        <div id="chatMessages">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div id="userInput">
+            <input type="text" id="userText" placeholder="Ask me something..." />
+            <button id="sendButton"><i>✉️</i></button>
+        </div>
+    </div>
+
+<script>
+    const chatIcon = document.getElementById('chatIcon');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChat = document.getElementById('closeChat');
+    const sendButton = document.getElementById('sendButton');
+    const userText = document.getElementById('userText');
+    const chatMessages = document.getElementById('chatMessages');
+
+    let waitingForFollowUp = false; // Track if we're waiting for follow-up question
+
+    // Opening and closing the chat window
+    chatIcon.addEventListener('click', () => {
+        chatWindow.style.display = 'flex';
+        greetUser();
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatWindow.style.display = 'none';
+    });
+
+    // Sending the user message
+    sendButton.addEventListener('click', () => {
+        const userMessage = userText.value.trim();
+        if (userMessage) {
+            addMessage(userMessage, 'user');
+            userText.value = '';
+            setTimeout(() => getAIResponse(userMessage), 500);
+        }
+    });
+
+    // Function to add messages to the chat window
+    function addMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', `${sender}-message`);
+        messageDiv.innerHTML = `<span>${message}</span>`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Greet user when chat window opens
+    function greetUser() {
+        addMessage("Hello! I'm your AI assistant. How are you today?", 'ai');
+        setTimeout(() => {
+            waitingForFollowUp = true; // Start waiting for follow-up response
+        }, 2000);
+    }
+
+    // AI responses for the questions
+        const aiResponses = {
+            "What is real food?": [
+                "Real food refers to whole, minimally processed foods that are close to their natural form, such as fruits, vegetables, lean proteins, whole grains, and healthy fats.",
+                "Would you like some examples of real food?"
+            ],
+            "What are some healthy snacks?": [
+                "Healthy snacks can include fruits, nuts, seeds, yogurt, or whole-grain crackers.",
+                "Would you like to know more about specific snacks?"
+            ],
+            "How do I lose weight safely?": [
+                "Safe weight loss typically involves a balanced diet, regular exercise, and staying hydrated. It's important to set realistic goals.",
+                "Do you want tips for creating a workout routine?"
+            ],
+            "What are the benefits of eating vegetables?": [
+                "Vegetables are rich in vitamins, minerals, and fiber, which help maintain overall health, improve digestion, and reduce the risk of chronic diseases.",
+                "Would you like some tips on how to include more vegetables in your diet?"
+            ],
+            "What is the best time to exercise?": [
+                "The best time to exercise depends on your schedule. Early morning or late evening workouts may help boost metabolism and energy.",
+                "What type of exercise are you interested in?"
+            ],
+            "How much water should I drink each day?": [
+                "It's generally recommended to drink about 8 cups (2 liters) of water per day, but this may vary based on your activity level and climate.",
+                "Would you like some hydration tips?"
+            ],
+            "What are superfoods?": [
+                "Superfoods are nutrient-dense foods that are considered to be especially beneficial for health and well-being, like berries, spinach, and salmon.",
+                "Would you like to know about any specific superfoods?"
+            ],
+            "How can I increase my protein intake?": [
+                "You can increase protein intake by eating lean meats, eggs, beans, legumes, and dairy products.",
+                "Would you like a list of high-protein foods?"
+            ],
+            "What are the signs of dehydration?": [
+                "Common signs of dehydration include dry mouth, fatigue, dark yellow urine, and dizziness.",
+                "Would you like tips on staying hydrated?"
+            ],
+            "How can I improve my sleep?": [
+                "To improve sleep, try establishing a regular sleep schedule, limiting screen time before bed, and creating a relaxing bedtime routine.",
+                "Would you like more tips on improving sleep quality?"
+            ]
+        };
+
+    const genericResponse = [
+        "This topic is outside my current expertise. Feel free to ask about diet, nutrition, or recipes!",
+        "Can I help you with something related to nutrition or wellness?"
+    ];
+
+    // Get AI response based on user input
+    function getAIResponse(userMessage) {
+        const lowerCaseMessage = userMessage.toLowerCase();
+        let response = genericResponse; // Default response for out-of-scope queries
+
+        for (let question in aiResponses) {
+            if (lowerCaseMessage.includes(question.toLowerCase())) {
+                response = aiResponses[question];
+                break;
+            }
+        }
+
+        // Adding AI's response to the chat
+        addMessage(response[0], 'ai');
+        setTimeout(() => addMessage(response[1], 'ai'), 3000); // Follow-up message after 3 seconds
+
+        // Start waiting for a follow-up question after the first answer
+        setTimeout(() => {
+            if (waitingForFollowUp) {
+                addMessage("Was the response useful? Feel free to ask any follow-up questions.", 'ai');
+                waitingForFollowUp = false; // Stop waiting after asking
+            }
+        }, 5000);
+    }
+
+</script>
+
+
+
+
+    <footer>
+        <p>&copy; 2025 Healthy Living. All rights reserved.</br> <a href="#contact">Email Us</a></p>
+<div class="ask-dietitian">
+        <a href="#faq" class="cta-btn">Ask Your Dietitian ?</a>
+    </div>
+    </footer>
+</body>
+</html>
+
